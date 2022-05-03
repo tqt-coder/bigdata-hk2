@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadDownloadController {
     private static final Logger logger = LoggerFactory.getLogger(UploadDownloadController.class);
     static List<String[]> data;
-
+    static List<String[]> data2;
     public UploadDownloadController() {
     }
 
@@ -66,5 +66,31 @@ public class UploadDownloadController {
     @GetMapping({"/data"})
     public List<String[]> getData() {
         return data;
+    }
+
+    @GetMapping({"/data2"})
+    public List<String[]> getData2() {
+        return data2;
+    }
+    @PostMapping({"/upload2"})
+    public void upload2(@RequestParam MultipartFile file) {
+        try {
+            InputStream inputStream = file.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            String line;
+            List<String[]> arrList = new ArrayList<>();
+            while((line = bufferedReader.readLine()) != null) {
+                String[] map = line.split("\t");
+                arrList.add(map);
+            }
+
+
+            StringBuilder salesData = new StringBuilder();
+            bufferedReader.close();
+            data2 = arrList;
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+
     }
 }

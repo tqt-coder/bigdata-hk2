@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Sales Bar Chart</title>
+    <script src="chart.min.js"></script>
+    <script src="utils.js"></script>
+    <style>
+	canvas2 {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+    tr,td,th{
+        border: 1px solid;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<header class="fixed">
+    <nav class="navbar navbar-expand-lg topbar shadow mb-1 static-top d-flex bg-light"
+         style="font-family: 'Times New Roman', Times, serif; padding: 5px;">
+        <a href="/" class="mr-auto logo" style="padding-left: 20px;">
+            <h2 style="margin-bottom: -10px;">
+                <u><img src="/cloud.png" alt="cloud" width="40" height="50" style="padding-bottom: 8px;"/>
+                    Group 5
+                </u>
+            </h2>
+        </a>
+    </nav>
+</header>
+
+<div id="container" class="container-fluid" style="width: 100%;">
+
+    <div id="canvas2"></div>
+
+    <br/>
+    <button id="stopDataset">Stop Processing</button>
+</div>
+<br/>
+
+<script src="Count.js">
+
+</script>
+
+
+</body>
+
+</html>
