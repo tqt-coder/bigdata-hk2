@@ -5,7 +5,7 @@ var yline;
 
 
 function loadFile(){ with (new XMLHttpRequest()) {
-    onreadystatechange=cb; open('GET','/data2',true); responseType='text';send();
+    onreadystatechange=cb; open('GET','/data3',true); responseType='text';send();
 }}
 
 var loadFile = setInterval(loadFile, 5000);
