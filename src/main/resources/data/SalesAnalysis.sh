@@ -12,9 +12,9 @@ echo "----- Start Sales Analysis -----"
   hive -e "LOAD DATA LOCAL INPATH 'data_1.csv' OVERWRITE INTO TABLE sales";
 
   # Executing the query and creating the result file.
-  hive -e 'SELECT * FROM sales GROUP BY product limit 10' > result_1
+  hive -e 'SELECT * FROM sales limit 10' > result_1
   hive -e 'SELECT product, count(product_id) FROM sales GROUP BY product' > result_2
-  hive -e 'SELECT product, max(price) FROM sales group by product order by price desc limit 10' > result_3
+  hive -e 'SELECT product, max(price) as MaxPrice FROM sales group by product order by MaxPrice desc limit 10' > result_3
   # Uploading the result file to the client system.
   curl -X POST http://$1:$2/upload -H 'content-type: multipart/form-data' -F file=@result_1
   curl -X POST http://$1:$2/upload2 -H 'content-type: multipart/form-data' -F file=@result_2
