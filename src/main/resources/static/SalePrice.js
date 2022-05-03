@@ -4,32 +4,37 @@ var yline;
 
 
 
-function loadFile(){ with (new XMLHttpRequest()) {
-    onreadystatechange=cb; open('GET','/data2',true); responseType='text';send();
-}}
+function loadFile() {
+    with(new XMLHttpRequest()) {
+        onreadystatechange = cb;
+        open('GET', '/data3', true);
+        responseType = 'text';
+        send();
+    }
+}
 
 var loadFile = setInterval(loadFile, 5000);
 
-function cb(){
-    if(this.readyState===4) tbl(this.responseText);
+function cb() {
+    if (this.readyState === 4) tbl(this.responseText);
 }
 
 function tbl(csv) {
     let arrResult = JSON.parse(csv);
 
     // [id,name,sl, dm]
-    let s ="<table>\n" +
+    let s = "<table>\n" +
         "        <tr>\n" +
 
         "            <th>product</th>\n" +
-        "            <th>Price</th>\n" ;
+        "            <th>Price</th>\n";
 
-    arrResult.forEach((data,index)=>{
+    arrResult.forEach((data, index) => {
         s = s + " <tr> ";
-        data.forEach((dt)=>{
+        data.forEach((dt) => {
             s = s + ` <td> ${dt}</td> `;
         })
-        s= s+ " </tr> "
+        s = s + " </tr> "
     })
 
     s = s + "</table>";
