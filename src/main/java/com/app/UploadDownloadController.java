@@ -3,7 +3,10 @@ package com.app;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -19,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 public class UploadDownloadController {
     private static final Logger logger = LoggerFactory.getLogger(UploadDownloadController.class);
-    static StringBuilder data = new StringBuilder();
+    static List<String[]> data;
 
     public UploadDownloadController() {
     }
@@ -43,25 +46,17 @@ public class UploadDownloadController {
         try {
             InputStream inputStream = file.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            HashMap salesMap = new HashMap();
-
             String line;
+            List<String[]> arrList = new ArrayList<>();
             while((line = bufferedReader.readLine()) != null) {
                 String[] map = line.split("\t");
-                salesMap.put(map[0].toUpperCase(), (int)Math.round(Double.parseDouble(map[1])));
+                arrList.add(map);
             }
 
+
             StringBuilder salesData = new StringBuilder();
-            salesData.append(salesMap.containsKey("ALIENWARE") ? salesMap.get("ALIENWARE") + "," : "0,");
-            salesData.append(salesMap.containsKey("APPLE") ? salesMap.get("APPLE") + "," : "0,");
-            salesData.append(salesMap.containsKey("DELL") ? salesMap.get("DELL") + "," : "0,");
-            salesData.append(salesMap.containsKey("LENOVO") ? salesMap.get("LENOVO") + "," : "0,");
-            salesData.append(salesMap.containsKey("SAMSUNG") ? salesMap.get("SAMSUNG") + "," : "0,");
-            salesData.append(salesMap.containsKey("SONY") ? salesMap.get("SONY") + "," : "0,");
-            salesData.append(salesMap.containsKey("TOSHIBA") ? salesMap.get("TOSHIBA") + "," : "0,");
             bufferedReader.close();
-            logger.info("UploadData: {}", salesData.toString());
-            data.append(salesData.toString() + "\n");
+              data = arrList;
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
@@ -69,7 +64,7 @@ public class UploadDownloadController {
     }
 
     @GetMapping({"/data"})
-    public String getData() {
-        return data.toString();
+    public List<String[]> getData() {
+        return data;
     }
 }
