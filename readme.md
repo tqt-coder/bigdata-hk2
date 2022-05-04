@@ -9,4 +9,4 @@
 - Tạo các file JS để gọi API
 ## 2. Thực hiện
 - Dụng lệnh sh + tên file được copy vào máy master + port ( trên máy local )
-- Xem kết quả
+- Xem kết quả.
