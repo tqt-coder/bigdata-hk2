@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <header th:fragment="fraghHeader(textContent)" class="fixed">
+        <nav class="navbar navbar-expand-lg topbar shadow mb-1 static-top d-flex bg-light"
+             style="font-family: 'Times New Roman', Times, serif; padding: 5px;">
+            <a th:href="@{/index}" class="mr-auto logo" style="text-decoration: none">
+                <h2 style="margin-bottom: -10px;">
+                    <p><img src="/cloud.png" alt="cloud" width="40" height="50" style="padding-bottom: 8px;"/>
+                        Group 5 - <span th:text="${textContent}"></span>
+                    </p>
+                </h2>
+
+            </a>
+            <div class="product" style="margin:10px 20px">
+                <a style="text-decoration: none; font-size: 20px; padding: 10px" th:href="@{/count}">Product Quantity</a>
+                <a style="text-decoration: none; font-size: 20px; padding: 10px" th:href="@{sale}">Top 10 Highest Price</a>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

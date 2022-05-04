@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Sales Bar Chart</title>
+
+    <style>
+
+    tr,td,th{
+        border: 1px solid;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<div th:insert="fragment/UI:: fraghHeader('Product Quantity')">
+
+</div>
+
+<div id="container" class="container-fluid" style="width: 100%;">
+
+    <div id="canvas2"></div>
+
+    <br/>
+    <button id="stopDataset">Stop Processing</button>
+</div>
+<br/>
+
+<script type="text/javascript" th:src="@{/Count.js}">
+
+</script>
+
+
+</body>
+
+</html>

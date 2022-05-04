@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Hive Price Top 10</title>
+
+    <style>
+
+    tr,td,th{
+        border: 1px solid;
+    }
+    table{
+        border-collapse: collapse;
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<div th:replace="fragment/UI::fraghHeader('Top 10 Highest SalePrice')"></div>
+<div id="container" class="container-fluid" style="width: 100%;">
+
+    <div id="canvas2"></div>
+
+    <br/>
+    <button id="stopDataset">Stop Processing</button>
+</div>
+<br/>
+
+<script type="text/javascript" th:src="@{/SalePrice.js}">
+
+</script>
+
+
+</body>
+
+</html>
