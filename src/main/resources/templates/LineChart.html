@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Line Chart</title>
+    <style>
+        .container {
+            margin: 10px 10px 10px 30px;
+            width: 70vw;
+            height: 90vh;
+        }
+
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            padding: 20px 10px;
+            color: #3838ad;
+        }
+    </style>
+</head>
+<body>
+<h2>Đồ thị thể hiện số lượng sản phẩm</h2>
+<div class="container">
+    <canvas id="myChart"></canvas>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" th:src="@{/LineChart.js}">
+
+</script>
+</body>
+</html>

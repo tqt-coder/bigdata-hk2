@@ -27,5 +27,14 @@ public class controller {
         return "SalePrice";
     }
 
+    @GetMapping("/PieChartProduct")
+    public String pieChartProduct(){
+        return "PieChartProduct";
+    }
+
+    @GetMapping("/LineChart")
+    public String lineChart(){
+        return "LineChart";
+    }
 
 }
