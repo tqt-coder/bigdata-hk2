@@ -21,7 +21,7 @@ function tbl(csv) {
     let arrResult = JSON.parse(csv);
 
     arrResult.forEach((data, index) => {
-        labels.push(data[0]);
+        labelColors.push(data[0]);
         arrData.push(data[1]);
         let r = Math.floor(Math.random() * 255);
         let g = Math.floor(Math.random() * 255);
@@ -42,27 +42,12 @@ function tbl(csv) {
     };
 
     const config = {
-        type: 'pie',
+        type: 'line',
         data: data,
+        options: {}
     };
 
-    // const data = {
-    //     labels: labels,
-    //     datasets: [{
-    //         label: 'My First dataset',
-    //         backgroundColor: 'rgb(255, 99, 132)',
-    //         borderColor: 'rgb(255, 99, 132)',
-    //         data: arrData,
-    //     }]
-    // };
-    //
-    // const config = {
-    //     type: 'line',
-    //     data: data,
-    //     options: {}
-    // };
-
-    const myChart = new Chart(
+    const myChart3 = new Chart(
         document.getElementById('myChart'),
         config
     );

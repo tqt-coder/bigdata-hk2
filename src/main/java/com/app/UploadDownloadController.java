@@ -66,7 +66,8 @@ public class UploadDownloadController {
                 boolean result = userRepo.addUser(e);
             });
 
-            return new ResponseEntity<>("Insert successfull in Database Noe4j", HttpStatus.OK);
+
+            return new ResponseEntity<>("Insert successfull in Database Noe4j: "+data.size() , HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception(e.getMessage());
